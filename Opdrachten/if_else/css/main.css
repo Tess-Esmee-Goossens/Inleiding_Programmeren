@@ -12,7 +12,7 @@ img{
 p{
     font-family: sans-serif;
     font-weight: bold;
-    color: red;
+    color: rgb(255, 255, 255);
     font-size: 2em;
     text-align: center;
     margin-top: -35vh;
@@ -23,3 +23,17 @@ body{
 }
 
 
+.even {
+    background-color: rgb(29, 78, 29);
+}
+
+.oneven {
+    background-color: rgb(128, 31, 31);
+}
+
+.epicwin {
+    background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWgweGFhazFpdXdkODA2dTRiMnk2eTV1NjR4MGd6NTE1Z3l0OHB5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TYovl95ul0fEcA83Tt/giphy.gif');      /* bron van https://media0.giphy.com */ 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

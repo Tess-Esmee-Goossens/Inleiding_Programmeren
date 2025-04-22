@@ -37,3 +37,35 @@ document.querySelector("img").src = 'images/'+dobbelsteenAfbeelding;
     Hier onder begint jouw code dus na het sterretje/
     ------- 
 */
+/* 
+    if (aantalOgen == 1){
+        document.querySelector('p').textContent =  "Jammer je hebt 1 gegooid en hebt verloren.";
+    } else if (aantalOgen == 3){
+        document.querySelector('p').textContent =  "Jammer je hebt 3 gegooid en hebt verloren.";
+    }else if (aantalOgen == 5){
+        document.querySelector('p').textContent =  "Jammer je hebt 5 gegooid en hebt verloren.";
+    };
+
+
+    if (aantalOgen == 1 || aantalOgen == 3 || aantalOgen == 5){
+        document.querySelector('p').textContent =  "Jammer, oneven. Je hebt verloren!";
+    } else if (aantalOgen == 6){
+        document.querySelector('p').textContent =  "Feest! dubbel uitbetaald!";
+    } else{
+        document.querySelector("p").textContent = 'mooie worp: '+aantalOgen; 
+    };
+*/
+const body = document.body;     // vind de body van het html bestand
+    
+body.classList.remove("even", "oneven", "epicwin");     // Reset eerst alle mogelijke klassen
+
+if (aantalOgen == 1 || aantalOgen == 3 || aantalOgen == 5) {
+    document.querySelector('p').textContent =  "Jammer, oneven. Je hebt verloren!";
+    body.classList.add("oneven");       // Voeg een class toe
+} else if (aantalOgen == 6) {
+    document.querySelector('p').textContent =  "Feest! dubbel uitbetaald!";
+    body.classList.add("epicwin");      // Voeg een class toe
+} else {
+    document.querySelector("p").textContent = 'mooie worp: '+aantalOgen;
+    body.classList.add("even");         // Voeg een class toe
+};
