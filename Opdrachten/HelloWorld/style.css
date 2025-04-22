@@ -12,6 +12,12 @@ h1 {
 
 body {
     background-color: var(--color-background-light);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;  /* Stacked layout: titel boven, knop onder */
+    justify-content: center; /* Verticaal centreren */
+    align-items: center;     /* Horizontaal centreren */
 }
 
 button {
