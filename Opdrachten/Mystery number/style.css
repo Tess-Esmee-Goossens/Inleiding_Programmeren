@@ -1,0 +1,46 @@
+:root {
+    --color-background-light: #D9BCAF;    /* Backgrounds, light accents */
+    --color-secondary-text: #8A9688;      /* Muted text, secondary elements */
+    --color-primary-text: #283D3B;        /* Primary text, dark UI elements */
+    --color-accent: #795663;              /* Highlight, button hover, accent text */
+    --color-background-dark: #011627;     /* Background, header, dark mode */
+}
+
+h1 {
+    color: var(--color-background-dark);
+}
+
+body {
+    background-color: var(--color-background-light);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;  /* Stacked layout: titel boven, knop onder */
+    justify-content: center; /* Verticaal centreren */
+    align-items: center;     /* Horizontaal centreren */
+}
+
+button {
+    background-color: var(--color-primary-text);
+    color: var(--color-secondary-text);
+    padding: 0.5em 1em;
+}
+
+button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background-dark);
+}
+
+.image-row {
+    display: flex;
+    gap: 1em; /* ruimte tussen de afbeeldingen */
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.image-row img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* zorgt ervoor dat beide even groot lijken */
+    border: 1px solid #ccc; /* optioneel, om de randen te laten opvallen */
+}
