@@ -1,15 +1,146 @@
-:root {
-    --color-background-light: #D9BCAF;    /* Backgrounds, light accents */
-    --color-secondary-text: #8A9688;      /* Muted text, secondary elements */
-    --color-primary-text: #283D3B;        /* Primary text, dark UI elements */
-    --color-accent: #795663;              /* Highlight, button hover, accent text */
-    --color-background-dark: #011627;     /* Background, header, dark mode */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
-body {
-    background-image: url(Images/Background.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/*---------------------------------------------------------------------------------------------------------*/
+
+/*Game*/
+
+.Game {
+    background: url(Images/Background.png) center/cover no-repeat;
     height: 100vh;
+    display: flex; /* Toggle flex to none or none to flex*/
+    flex-direction: column;
+    position: relative;
+}
+
+.Tech {
+    position: relative;
+    height: 5vh;
+    width: 100%;
+    margin-bottom: 5vh;
+}
+
+.Tech > h1 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    margin: 0;
+    padding: 0 10px;
+    height: 5vh;
+    line-height: 5vh;
+    text-align: center;
+    border: 3px solid #011627;
+}
+
+.Tech > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 5vh;
+    width: 25vw;
+    background-color: white;
+    border: 3px solid #011627;
+}
+
+
+.Customers {
+    display: flex;
+    justify-content: space-evenly;
+    height: 60vh;
+    z-index: 1;
+}
+
+.Order {
+    background: white;
+    border: 3px solid #011627;
+    padding: 1em;
+    width: 100px;
+    height: fit-content;
+}
+
+.Order img {
+    width: 100px;
+}
+
+.Customers > div {
+    position: relative;
+    display: flex;
+}
+
+.Counter {
+    background-image: url("Images/Black_Wood.jpg");
+    height: 30vh;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.stock {
+    display: flex;
+}
+
+.Counter img {
+    width: 100px;
+}
+
+.Dienblad {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: fit-content;
+    height: 50%;
+    padding: 10px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    border: 3px solid #011627;
+}
+
+
+
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+/*Level up screen*/
+
+
+.LevelScreen{
+    display: none; /* Toggle block to none or none to block*/
+    background-color: hotpink;
+    padding: 80px;
+    color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    height: 600px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.LevelScreen > h2{
+    font-size: 5em;
+}
+.LevelScreen > p{
+    font-size: 3em;
+}
+.LevelScreen > button{
+    background-color: Black;
+    border: black 2px solid;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    margin-top:50%;
+    font-size: 1.5em;
 }

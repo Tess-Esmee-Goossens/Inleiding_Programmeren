@@ -1,4 +1,4 @@
-console.log("Hallo Wereld!");
+/*console.log("Hallo Wereld!");
 let hintP = document.querySelector("p");
 
 function showHint() {
@@ -34,3 +34,4 @@ btnStop.addEventListener("click", stopCountingTime)
 function stopCountingTime(){
     clearInterval(timer)
 } 
+*/
