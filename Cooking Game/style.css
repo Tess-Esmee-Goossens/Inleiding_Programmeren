@@ -1,0 +1,15 @@
+:root {
+    --color-background-light: #D9BCAF;    /* Backgrounds, light accents */
+    --color-secondary-text: #8A9688;      /* Muted text, secondary elements */
+    --color-primary-text: #283D3B;        /* Primary text, dark UI elements */
+    --color-accent: #795663;              /* Highlight, button hover, accent text */
+    --color-background-dark: #011627;     /* Background, header, dark mode */
+}
+
+body {
+    background-image: url(Images/Background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
