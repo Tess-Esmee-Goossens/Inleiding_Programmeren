@@ -68,6 +68,7 @@ html, body {
     padding: 1em;
     width: 100px;
     height: fit-content;
+    display: none;
 }
 
 .Order img {
@@ -77,6 +78,10 @@ html, body {
 .Customers > div {
     position: relative;
     display: flex;
+}
+
+.Customers > div > img {
+  visibility: hidden;
 }
 
 .Counter {

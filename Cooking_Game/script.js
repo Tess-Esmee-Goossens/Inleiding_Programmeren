@@ -44,20 +44,28 @@ function renderCustomer(container, customer) {
     const img = container.querySelector("img");
     const orderContainer = container.querySelector(".Order");
 
-    // Set image
-    img.src = customer.image;
-
-    // Clear order
-    orderContainer.innerHTML = "";
+    // Set or hide customer image
+    if (customer.image) {
+        img.src = customer.image;
+        img.style.visibility = "visible";
+    } else {
+        img.src = "";
+        img.style.visibility = "hidden";
+    }
 
     // Add order after delay
-    const orderDelay = Math.random() * 3000 + 3000; // 3–6 seconds 
+    const orderDelay = Math.random() * 3000 + 3000; // 3–6 seconds
+    
     setTimeout(() => {
+        orderContainer.innerHTML = ""; // clear old order images
+
         customer.order.forEach(item => {
             const itemImg = document.createElement("img");
             itemImg.src = item;
             orderContainer.appendChild(itemImg);
         });
+
+        orderContainer.style.display = "block"; // show order after adding
     }, orderDelay);
 }
 
