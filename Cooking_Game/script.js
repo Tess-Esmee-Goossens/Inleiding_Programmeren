@@ -1,3 +1,9 @@
+
+//-------------Audio-------------//
+
+
+
+
 //-------------Start-Game-------------//
 
 const button = document.querySelector("button"); 
