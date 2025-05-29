@@ -92,7 +92,7 @@ function renderCustomer(container, customer) {
 }
 
 
-//-------------Randomize Customers With Delay-------------//
+//-------------Randomize-Customers-With-Delay-------------//
 
 function randomizeCustomers() {
     const customerContainers = document.querySelectorAll(".Customers > div");
@@ -120,22 +120,32 @@ button.addEventListener('click', toggleScreens);
 
 
 //-------------Switch-Screen-------------//
-
 const game = document.querySelector(".Game");           // Selects element with class "Game"
 const levelScreen = document.querySelector(".LevelScreen"); // Selects element with class "LevelScreen"
 
 game.classList.add("hide");
 
 function toggleScreens(){
+    const music = document.getElementById("bg-music");
+
     if (game.classList.contains("hide")) {
         game.classList.remove("hide");
         levelScreen.classList.add("hide");
 
         startTimer();
         randomizeCustomers();
+
+        //https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio
+        music.play().catch(e => {
+            console.log("Music autoplay blocked by browser:", e);
+        });
     } else {
         game.classList.add("hide");
         levelScreen.classList.remove("hide");
+
+        //https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio
+        music.pause();
+        music.currentTime = 0;
 
         if(timer !== null){
             clearInterval(timer);
