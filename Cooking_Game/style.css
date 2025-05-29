@@ -16,7 +16,7 @@ html, body {
 /*Game*/
 
 .Game {
-    background: url(Images/Background.png) center/cover no-repeat;
+    background: url(Images/Background.png) center/cover no-repeat; /* Bron background: https://ledachung.artstation.com/projects/4Jdw1 */
     height: 100vh;
     display: flex; /* Toggle flex to none or none to flex*/
     flex-direction: column;
@@ -85,7 +85,7 @@ html, body {
 }
 
 .Counter {
-    background-image: url("Images/Black_Wood.jpg");
+    background-image: url("Images/Black_Wood.jpg"); /* Bron Counter black wood: https://www.amazon.com/SINGULARWOOD-Planks-Panels-Installation-Ebony-Light/dp/B09G2L1SYQ?th=1 */
     height: 30vh;
     width: 100%;
     position: relative;

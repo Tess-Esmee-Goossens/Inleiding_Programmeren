@@ -2,19 +2,19 @@
 //-------------Customers-------------//
 
 const customerImages = [
-    "Images/Man.png",
-    "Images/Woman_Pink_Hair.png",
-    "Images/Woman_Black_Hair.png",
-    "Images/Woman_Blond_Hair.png"
+    "Images/Man.png",                   // Bron personage: https://www.freepik.com/free-vector/flat-teenager-collection_842822.htm#fromView=keyword&page=1&position=21&uuid=ee4d5e12-e603-4275-ad69-3c59a01df59d&query=Young+Children+Characters 
+    "Images/Woman_Pink_Hair.png",       // Bron personage: https://www.freepik.com/free-vector/flat-teenager-collection_842822.htm#fromView=keyword&page=1&position=21&uuid=ee4d5e12-e603-4275-ad69-3c59a01df59d&query=Young+Children+Characters 
+    "Images/Woman_Black_Hair.png",      // Bron personage: https://www.freepik.com/free-vector/flat-teenager-collection_842822.htm#fromView=keyword&page=1&position=21&uuid=ee4d5e12-e603-4275-ad69-3c59a01df59d&query=Young+Children+Characters 
+    "Images/Woman_Blond_Hair.png"       // Bron personage: https://www.freepik.com/free-vector/flat-teenager-collection_842822.htm#fromView=keyword&page=1&position=21&uuid=ee4d5e12-e603-4275-ad69-3c59a01df59d&query=Young+Children+Characters 
 ];
 
 
 //-------------Order-Items-------------//
 
 const orderItems = [
-    "Images/Slice_Of_Bread.png",
-    "Images/Bread.png",
-    "Images/White_Glossy_Bread.png"
+    "Images/Slice_Of_Bread.png",        // Bron bread 2: https://www.vecteezy.com/png/47084338-white-bread-slice-on-transparent-background
+    "Images/Bread.png",                 // Bron bread 1: https://www.pngkey.com/maxpic/u2w7q8o0w7w7e6y3/
+    "Images/White_Glossy_Bread.png"     // Bron bread 3: https://pngimg.com/image/2250
 ];
 
 
@@ -55,7 +55,7 @@ function renderCustomer(container, customer) {
 
     // Add order after delay
     const orderDelay = Math.random() * 3000 + 3000; // 3–6 seconds
-    
+
     setTimeout(() => {
         orderContainer.innerHTML = ""; // clear old order images
 
