@@ -88,6 +88,12 @@ function renderCustomer(container, customer) {
         });
 
         orderContainer.style.display = "block"; // show order after adding
+
+        const bell = document.getElementById("bell-sound");
+        if (bell) {
+            bell.currentTime = 0; // rewind to start
+            bell.play().catch(e => console.log("Bell play blocked:", e));
+        };
     }, orderDelay);
 }
 
