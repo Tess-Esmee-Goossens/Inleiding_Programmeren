@@ -44,7 +44,7 @@ html, body {
     border: 3px solid #011627;
 }
 
-.Tech > div {
+.Tech > .progress-bar {
     position: absolute;
     top: 0;
     right: 0;
@@ -52,6 +52,15 @@ html, body {
     width: 25vw;
     background-color: white;
     border: 3px solid #011627;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.Tech > .progress-bar > .progress-fill {
+    height: 100%;
+    width: 0%; /* This will be updated dynamically */
+    background-color: hotpink; /* Dark color fill */
+    transition: width 0.3s ease;
 }
 
 

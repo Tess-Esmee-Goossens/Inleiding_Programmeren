@@ -1,5 +1,51 @@
 
-//-------------Clear-gGme-------------//
+//-------------Did-i-win-------------//
+
+function checkGameResult() {
+  // Check if player helped 15 or more customers
+  if (customersHelped >= totalCustomers) {
+    // Player wins level
+    currentLevel++;
+    alert("You won the level! 🎉");
+  } else {
+    // Player fails level
+    alert("You failed the level. Try again!");
+  }
+
+  // Show LevelScreen and update text
+  game.classList.add("hide");
+  levelScreen.classList.remove("hide");
+
+  levelScreen.querySelector("h2").textContent = "Level: " + currentLevel;
+  levelScreen.querySelector("p").textContent = "Score: " + score;
+}
+
+
+//-------------Score-------------//
+
+let currentLevel = 0;
+let score = 0;
+let customersHelped = 0; // Updated in compare and serve order
+const totalCustomers = 15; 
+
+function updateProgressBar(helped) {
+    customersHelped = helped;
+    const progressPercent = (customersHelped / totalCustomers) * 100;
+    const progressFill = document.querySelector('.progress-fill');
+
+    progressFill.style.width = progressPercent + '%';
+
+    if (progressPercent >= 100) {
+        progressFill.style.backgroundColor = 'gold'; // Change color to gold
+    } else {
+        progressFill.style.backgroundColor = ''; // Reset to default
+    }
+}
+
+// Example: update progress to 7 customers helped
+updateProgressBar(customersHelped);
+
+//-------------Clear-Game-------------//
 
 function clearGame() {
     // Clear timer
@@ -7,12 +53,19 @@ function clearGame() {
         clearInterval(timer);
         timer = null;
     }
+
+    //clear score
+    score = 0;
+    customersHelped = 0;
+
+    const progressFill = document.querySelector('.progress-fill');
+    progressFill.style.width = '0%';
+    progressFill.style.backgroundColor = ''; 
     
     // Clear customers and their orders
     const customerContainers = document.querySelectorAll(".Customers > div");
     customerContainers.forEach(container => {
         clearCustomer(container);
-        // Remove the onclick listener to prevent order serving on hidden screen
         container.onclick = null;
     });
 
@@ -21,9 +74,6 @@ function clearGame() {
     while (dienblad.firstChild) {
         dienblad.firstChild.remove();
     }
-
-    // Optionally stop any ongoing customer randomization timeouts (if you use setTimeouts, keep references to clear)
-    // For your current code, no global timeout references, so no direct cancel
     
     // Reset timer display
     timerText.textContent = "00:00";
@@ -72,7 +122,13 @@ function compareAndServeOrder(orderContainer, dienblad) {
             if (trayImg) trayImg.remove();
         });
 
+         // 🆕 Update score and count
+        score += 33;
+        customersHelped++;
+        updateProgressBar(customersHelped);
+
         console.log("Order served!");
+
         const customerContainer = orderContainer.closest(".Person-1, .Person-2, .Person-3");
         if (customerContainer) {
             clearCustomer(customerContainer);
@@ -122,6 +178,12 @@ document.addEventListener("DOMContentLoaded", () => {   // wacht tot html is gel
                 alert("You can only add up to 4 items on the dienblad.");
             }
         });
+    });
+
+    dienblad.addEventListener("click", (event) => {
+        if (event.target.tagName === "IMG") {
+            event.target.remove();
+        }
     });
 });
 
@@ -211,7 +273,7 @@ function renderCustomer(container, customer) {
 //-------------Randomize-Customers-With-Delay-------------//
 
 function randomizeCustomers() {
-    if (secondsPassed < 16) {
+    if (secondsPassed < 13) {
         console.log("Timer less than 16 seconds — skipping customer randomization");
         return; // Do not randomize if less than 16 seconds left
     }
@@ -227,7 +289,7 @@ function randomizeCustomers() {
 
         // Only assign a new customer if slot is empty
         if (!hasCustomer && !hasOrder) {
-        const customerDelay = Math.random() * 7000 + 3000; // 3–10s delay
+        const customerDelay = Math.random() * 3000 + 3000; // 3–6s delay
         setTimeout(() => {
             const customer = generateRandomCustomer();
             renderCustomer(container, customer);
@@ -264,8 +326,7 @@ function toggleScreens(){
             console.log("Music autoplay blocked by browser:", e);
         });
     } else {
-        game.classList.add("hide");
-        levelScreen.classList.remove("hide");
+        checkGameResult();
 
         //https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio
         music.pause();
@@ -279,7 +340,7 @@ function toggleScreens(){
 //-------------Timer-------------//
 
 let timerText = document.querySelector("h1");
-let secondsPassed = 70; // Set the starting number
+let secondsPassed = 160; // Set the starting number
 let timer = null;
 
 function countSeconds() {
@@ -306,7 +367,7 @@ function startTimer() {
         clearInterval(timer);
     }
 
-    secondsPassed = 70; // Reset time
+    secondsPassed = 160; // Reset time
     countSeconds(); // Show the first second immediately
     timer = setInterval(countSeconds, 1000);
 }
