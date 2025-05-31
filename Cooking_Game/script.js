@@ -28,7 +28,6 @@ function toggleScreens(){
 
     } else {
         checkGameResult();
-        clearGame(); 
     };
 }
 
@@ -51,6 +50,7 @@ function checkGameResult() {
     
     game.classList.add("hide");
     levelScreen.classList.remove("hide");
+    clearGame(); 
 };
 
 
@@ -127,6 +127,7 @@ function clearGame() {
 
     // Reset music
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio
+    const music = document.getElementById("bg-music");
     music.pause();
     music.currentTime = 0;
 
@@ -310,7 +311,7 @@ let isServingOrder = false;
 
 function compareAndServeOrder(orderContainer, tray) {
     if (isServingOrder) {
-        alert("Calm down no rush");
+        alert("Calm down, no rush!");
         return; // Because of a problem with create customers when your to fast
     };
 
