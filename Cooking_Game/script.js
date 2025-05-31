@@ -6,17 +6,19 @@ function checkGameResult() {
   if (customersHelped >= totalCustomers) {
     // Player wins level
     currentLevel++;
-    alert("You won the level! 🎉");
+    levelScreen.querySelector("h2").textContent = "You won";
+    levelScreen.querySelector("button").textContent = "Next level";
   } else {
     // Player fails level
-    alert("You failed the level. Try again!");
+    levelScreen.querySelector("h2").textContent = "you lost";
+    levelScreen.querySelector("button").textContent = "Try again";
   }
 
   // Show LevelScreen and update text
   game.classList.add("hide");
   levelScreen.classList.remove("hide");
 
-  levelScreen.querySelector("h2").textContent = "Level: " + currentLevel;
+  levelScreen.querySelector("h3").textContent = "Level: " + currentLevel;
   levelScreen.querySelector("p").textContent = "Score: " + score;
 }
 
@@ -26,7 +28,7 @@ function checkGameResult() {
 let currentLevel = 0;
 let score = 0;
 let customersHelped = 0; // Updated in compare and serve order
-const totalCustomers = 15; 
+const totalCustomers = 1; 
 
 function updateProgressBar(helped) {
     customersHelped = helped;
@@ -60,7 +62,7 @@ function clearGame() {
 
     const progressFill = document.querySelector('.progress-fill');
     progressFill.style.width = '0%';
-    progressFill.style.backgroundColor = ''; 
+    progressFill.style.backgroundColor = ''; // Reset color
     
     // Clear customers and their orders
     const customerContainers = document.querySelectorAll(".Customers > div");
