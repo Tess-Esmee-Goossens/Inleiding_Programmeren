@@ -28,6 +28,7 @@ function toggleScreens(){
 
     } else {
         checkGameResult();
+        clearGame(); 
     };
 }
 
@@ -50,7 +51,6 @@ function checkGameResult() {
     
     game.classList.add("hide");
     levelScreen.classList.remove("hide");
-    clearGame(); 
 };
 
 
