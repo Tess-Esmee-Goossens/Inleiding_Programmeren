@@ -145,34 +145,34 @@ function clearGame() {
         container.onclick = null;
     });
 
-    // Clear dienblad items
-    const dienblad = document.querySelector(".Dienblad");
-    while (dienblad.firstChild) {
-        dienblad.firstChild.remove();
+    // Clear tray items
+    const tray = document.querySelector(".Tray");
+    while (tray.firstChild) {
+        tray.firstChild.remove();
     };
 };
 
-//-------------Dienblad-------------//
+//-------------Tray-------------//
 
 // ChatGPT    https://chatgpt.com/share/6838e899-4ab0-8010-ab53-daa93842d91b
 // Promt: when selecting a bread on the counter i want it to be added to my dienblad with a max of 4 items <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="style.css"> <script src="script.js" defer></script> <title>Inleiding-Programmeren</title> </head> <body> <div class="Game"> <div class="Tech"> <h1>00:00</h1> <div></div> </div> <div class="Customers"> <div class="Person-1"> <img src="" alt="Customer 1" /> <div class="Order"></div> </div> <div class="Person-2"> <img src="" alt="Customer 2" /> <div class="Order"></div> </div> <div class="Person-3"> <img src="" alt="Customer 3" /> <div class="Order"></div> </div> </div> <div class="Counter"> <div class="Stock"> <img src="Images/Slice_Of_Bread.png"> <img src="Images/Bread.png"> <img src="Images/White_Glossy_Bread.png"> </div> <div class="Dienblad"> <img src="Images/Slice_Of_Bread.png"> <img src="Images/Slice_Of_Bread.png"> <img src="Images/Bread.png"> <img src="Images/White_Glossy_Bread.png"> </div> </div> </div> <div class="LevelScreen"> <h2>Level:</h2>   <!-- verander tekst met JS --> <p>Score:</p>   <!-- verander tekst met JS --> <button>Next level</button> </div> </body> </html>
 
 document.addEventListener("DOMContentLoaded", () => {   // wacht tot html is geladen
     const stockImages = document.querySelectorAll(".Stock img");
-    const dienblad = document.querySelector(".Dienblad");
+    const tray = document.querySelector(".Tray");
 
     stockImages.forEach(img => {
         img.addEventListener("click", () => {
-            if (dienblad.children.length < 4) {
+            if (tray.children.length < 4) {
                 const newImg = img.cloneNode(true);     //Maakt een kopie van de aangeklikte afbeelding (cloneNode(true) kloont het volledige element, inclusief attributen).
-                dienblad.appendChild(newImg);           //Voegt de kopie toe aan het .Dienblad.
+                tray.appendChild(newImg);           //Voegt de kopie toe aan het .Tray.
             } else {
-                alert("You can only add up to 4 items on the dienblad.");
+                alert("You can only add up to 4 items on the tray.");
             };
         });
     });
 
-    dienblad.addEventListener("click", (event) => {
+    tray.addEventListener("click", (event) => {
         if (event.target.tagName === "IMG") {
             event.target.remove();
         };
@@ -269,8 +269,8 @@ function renderCustomer(container, customer) {
         orderContainer.style.display = "block"; // show order after adding
 
         container.onclick = () => {
-            const dienblad = document.querySelector(".Dienblad");
-            compareAndServeOrder(orderContainer, dienblad);
+            const tray = document.querySelector(".Tray");
+            compareAndServeOrder(orderContainer, tray);
         };
 
         const bell = document.getElementById("bell-sound");
@@ -308,7 +308,7 @@ function clearCustomer(container) {
 
 let isServingOrder = false;
 
-function compareAndServeOrder(orderContainer, dienblad) {
+function compareAndServeOrder(orderContainer, tray) {
     if (isServingOrder) {
         alert("Calm down no rush");
         return; // Because of a problem with create customers when your to fast
@@ -320,7 +320,7 @@ function compareAndServeOrder(orderContainer, dienblad) {
     const wrongSound = document.getElementById("wrong");
 
     const orderItems = Array.from(orderContainer.querySelectorAll("img")).map(img => img.src);
-    const trayItems = Array.from(dienblad.querySelectorAll("img"));
+    const trayItems = Array.from(tray.querySelectorAll("img"));
 
     const traySrcs = trayItems.map(img => img.src);
 
@@ -342,7 +342,7 @@ function compareAndServeOrder(orderContainer, dienblad) {
         // Remove matched order items from tray and order display
         orderItems.forEach(item => {
             // Remove from tray (first match only)
-            const trayImg = Array.from(dienblad.querySelectorAll("img")).find(img => img.src === item);
+            const trayImg = Array.from(tray.querySelectorAll("img")).find(img => img.src === item);
             if (trayImg) trayImg.remove();
         });
 
