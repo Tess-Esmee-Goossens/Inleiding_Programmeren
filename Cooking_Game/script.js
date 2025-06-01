@@ -1,7 +1,9 @@
-//-------------Start-Game-------------//
+//-------------Start/Exit-Game-------------//
+const exit = document.querySelector(".Tech button"); 
+const button = document.querySelector(".LevelScreen button"); 
 
-const button = document.querySelector("button"); 
 button.addEventListener('click', toggleScreens);
+exit.addEventListener('click', toggleScreens);
 
 
 //-------------Switch-Screen-------------//
